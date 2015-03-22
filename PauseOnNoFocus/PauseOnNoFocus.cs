@@ -24,9 +24,14 @@ namespace PauseOnNoFocus
 
     public class PauseOnUnfocus : LoadingExtensionBase
     {
-        public override void OnCreated(ILoading loading)
+        public override void OnLevelLoaded(LoadMode mode)
         {
             Application.runInBackground = false;
+        }
+
+        public override void OnLevelUnloading()
+        {
+            Application.runInBackground = true;
         }
     }
 }
